@@ -1,1 +1,0 @@
-Configuraciones con la BD, puerto, token o llave secreta.- 
