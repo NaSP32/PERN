@@ -1,6 +1,7 @@
 import express from "express"; //modulo ya instalado
 import morgan from "morgan";
 import tareasRoutes from "./router/tareas.routes.js"
+import authRoutes from "./router/auth.routes.js"
 
 const app = express(); //para lanzar de express 
 
@@ -10,7 +11,8 @@ app.use(express.json()); //convertimos lo que llega desde el front a objeto de j
 app.use(express.urlencoded({extended: false})); //para codificar formularios html CORTOS
 
 app.get("/", (req, res) => res.json({ message: "Bienvenidos a nuestro proyecto PERN" }));
-app.use("/tareas", tareasRoutes);
+app.use('/api', tareasRoutes);
+app.use('/api', authRoutes);
 
 //Creamos un manejador de errores
 app.use((err, req, res, next) =>{
